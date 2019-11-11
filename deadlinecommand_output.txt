@@ -1,0 +1,2110 @@
+Microsoft Windows [Version 10.0.18362.356]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\ricardom>cd %DEADLINE_PATH%
+
+C:\Program Files\Thinkbox\Deadline10\bin>deadlinecommand.exe
+Deadline Client Version 10.0.27.3 Release  (f9638e9ab)
+
+FranticX Client Version 2.4.0.0 Release  (1daeb340b)
+
+A command line query and control application for the Deadline render queue system
+
+© 2002-2019 Thinkbox Software Inc
+
+About
+  Displays the about text
+
+
+AddAssetServerRoots
+  Appends new asset server root directories to the list.
+    [Path...]                The directories to append.
+
+
+AddGroup
+  Adds the group.
+    [Group Name]             The group name
+
+
+AddGroupMapping
+  Add or Edit a Group Mapping.
+    [Region]                 The name of the Cloud Region
+    [Group]                  Name of the Group
+    [Image]                  Image Name
+    [Machine Type]           Machine Type
+    [Cost]                   Cost defaults=1
+    [Pool]                   Name of the Pool default=none
+
+
+AddGroupToSlave
+  Adds a group to the slave.
+    [Slave Name(s)]          The slave name, or a list of slave names
+                             separated by commas
+    [Group Name(s)]          The group name, or a list of group names
+                             separated by commas
+
+
+AddJobHistoryEntry
+  Adds a Job History Entry for the Job.
+    [Job ID]                 The job's ID
+    [History Entry]          The history entry to add.
+
+
+AddPool
+  Adds the pool.
+    [Pool Name(s)]           The pool name, or a list of names separated by
+                             commas
+
+
+AddPoolToSlave
+  Adds a pool to the slave.
+    [Slave Name(s)]          The slave name, or a list of slave names
+                             separated by commas
+    [Pool Name(s)]           The pool name, or a list of pool names separated
+                             by commas
+
+
+AddRepositoryHistoryEntry
+  Adds a Repository History Entry.
+    [History Entry]          The history entry to add.
+
+
+AddSlaveHistoryEntry
+  Adds a Slave History Entry for the Slave.
+    [Slave Name]             The slave name
+    [History Entry]          The history entry to add.
+
+
+AddSlavesToJobMachineLimitList
+  Adds slaves to the job's listed slaves.
+    [Job ID(s)]              The job ID, or a list of job IDs separated by
+                             commas
+    [Slaves]                 The slaves to add, separated by commas
+
+
+AddSlavesToLimitGroupList
+  Adds slaves to the limit's listed slaves.
+    [Limit Name(s)]          The limit name, or a list of limit names
+                             separated by commas
+    [Slaves]                 The slaves to add, separated by commas
+
+
+AddUserToUserGroup
+  Adds a user to the user group.
+    [User Name(s)]           The user name, or a list of user names separated
+                             by commas
+    [User Group Name(s)]     The user group name, or a list of user group
+                             names separated by commas
+
+
+AppendJobFrameRange
+  Appends to the job's existing frame range.
+    [Job ID(s)]              The job ID, or a list of job IDs separated by
+                             commas
+    [Frame List]             The additional frames to append
+
+
+ArchiveJob
+  Archives the job.
+    [Job ID(s)]              The job ID, or a list of job IDs separated by
+                             commas
+
+
+AWSPortalPrecacheJob
+  Precaches the AWS Portal Assets of the jobs.
+    [Job ID(s)]              The job ID, or a list of job IDs separated by
+                             commas
+
+
+Background
+  Submits a job as a background process.
+    [notify]                 This flag displays a notification window after
+                             the jobs have been submitted
+    [<Job Files>]            The list of job files
+
+
+ChangeAutoConfigurationPort
+  Changes the port that the Auto Configuration feature uses.
+    [Port]                   The new port number, between 1 and 65535
+                             inclusive
+
+
+ChangeLicenseMode
+  Sets the Deadline License Mode
+    [License Mode]           Standard or UsageBased
+
+
+ChangeLicenseServer
+  Allows you to change the license server the Balancer and Slaves connect to.
+    [License Server]         (optional) If not specified, a License Server
+                             dialog will be displayed
+
+
+ChangeListeningPort
+  Changes the port that the Deadline Launcher listens on.
+    [Port]                   The new port number, between 1 and 65535
+                             inclusive
+
+
+ChangeRepository
+  Allows you to change the Repository Connection Settings that Deadline uses by
+  default. If no arguments are provided, the Change Repository dialog will be
+  displayed.
+    [Connection Type]        Optional. Specifies the type of connection to
+                             use when connecting (either Direct or Proxy). If
+                             not specified, the type will be inferred from
+                             the connection string.
+    [Connection String]      When using Direct connection, this is the path
+                             to the root of the Repository. When using a
+                             Proxy connection, this is a string of format
+                             <HOST>:<PORT>.
+    [Client Certificate]     Optional. The path to a client certificate to
+                             use when connecting to a Proxy or Database over
+                             SSL/TLS.
+    [Certificate Password]   Optional. The password to the provided Client
+                             Certificate, if required.
+
+
+ChangeRepositorySkipValidation
+  Allows you to change the Repository Connection Settings that Deadline uses by
+  default and saves those setting without validating them. If no arguments are
+  provided, the Change Repository dialog will be displayed.
+    [Connection Type]        Optional. Specifies the type of connection to
+                             use when connecting (either Direct or Proxy). If
+                             not specified, the type will be inferred from
+                             the connection string.
+    [Connection String]      When using Direct connection, this is the path
+                             to the root of the Repository. When using a
+                             Proxy connection, this is a string of format
+                             <HOST>:<PORT>.
+    [Client Certificate]     Optional. The path to a client certificate to
+                             use when connecting to a Proxy or Database over
+                             SSL/TLS.
+    [Certificate Password]   Optional. The password to the provided Client
+                             Certificate, if required. Only used for Direct
+                             connections.
+
+
+ChangeUser
+  Changes the current Deadline user on this machine.
+    [User Name]              (optional) If not specified, a User Login dialog
+                             will be displayed
+
+
+CheckAdminPrivileges
+  Checks if the current user has admin privileges.
+    [Verbose]                true/false
+
+
+CheckFilePermissions
+  Checks the read/write permissions on the file.
+    [ReadOnly/WriteOnly]     Checks both if omitted (optional)
+    [Quiet]                  Print only SUCCESS or errors (optional)
+    [Filename]               The file to check
+
+
+CheckPathMapping
+  Performs path mapping on the given path. Uses the path mappings in the
+  Repository Options.
+    [Path]                   The path to map
+    [Force Separator]        All path separators in the replacement path will
+                             be replaced with this before the original path
+                             is mapped (optional)
+
+
+CheckPathMappingForMultiplePaths
+  Performs path mapping on the given paths. Uses the path mappings in the
+  Repository Options.
+    [Paths]                  The path to map, or a list of paths to map each
+                             separated by a space
+    [Force Separator]        All path separators in the replacement path will
+                             be replaced with this before the original path
+                             is mapped (optional). To set this please precede
+                             the separator with "forceSeparator:".
+
+
+CheckPathMappingInFile
+  Performs path mapping on the contents of the given file. Uses the path
+  mappings in the Repository Options.
+    [Input File]             The original file name
+    [Output File]            The new file name where the mapped contents will
+                             be stored
+    [Force Separator]        All path separators in the replacement path will
+                             be replaced with this before the original path
+                             is mapped (optional)
+
+
+CheckPathMappingInFileAndReplaceSeparator
+  Performs path mapping on the contents of the given file, and updates all path
+  separators in any paths that are mapped. Uses the path mappings in the
+  Repository Options.
+    [Input File]             The original file name
+    [Output File]            The new file name where the mapped contents will
+                             be stored
+    [Old Separator]          The path separator to replace
+    [New Separator]          The new path separator
+    [Force Separator]        All path separators in the replacement path will
+                             be replaced with this before the original path
+                             is mapped (optional)
+
+
+CompleteJob
+  Completes a job.
+    [Job ID(s)]              The job ID, or a list of job IDs separated by
+                             commas
+
+
+CompleteJobTask
+  Marks the specified task for the job as complete.
+    [Job ID]                 The job ID
+    [Task ID]                The task ID
+
+
+CompleteJobTasks
+  Completes the specified tasks for the job.
+    [Job ID]                 The job ID
+    [Task IDs]               The comma separated list of task IDs
+
+
+ConfigureConnectionServer
+  Convenience function that serves as a single point of entry to configure (and
+  re-configure) settings relevant to the deadline connection server applications
+  (RCS + Proxy). Parameters are not positional; they are all optional and should
+  be specified in '--key <value>' form.
+    [--ip <value>]           Specifies the interface on which the connection
+                             server listens for incoming external
+                             connections.
+    [--port <value>]         Sets the Port on which the connection server
+                             listens for incoming HTTP connections.
+    [--tls_port <value>]     Sets the Port on which the connection server
+                             listens for incoming TLS (HTTPS) connections.
+    [--tls_cert <value>]     When set to a valid PKCS#12 file containing an
+                             x.509 certificate and key, the connection server
+                             will serve TLS (HTTPS) connections on the
+                             configured TLS Port.
+    [--tls_cacert <value>]   When set to a valid x.509 certificate (either
+                             PKCS#12 or PEM format), it will be used as an
+                             additional trusted root to validate client
+                             certificates from incoming TLS connections.
+    [--tls_auth <value>]     When set to True, all clients will be expected
+                             to present valid (and trusted) x.509
+                             certificates when connecting over TLS (HTTPS).
+    [--all_users]            If this flag is present, the settings will be
+                             configured for all users. Otherwise, only the
+                             current user's settings will be affected.
+
+
+ConfigureDatabase
+  Configures (or re-configures) a Deadline database. This will connect to Mongo
+  DB using the provided information, and prints out server connection info that
+  was used in a successful connection (might be slightly different from the
+  input).
+    [Host]                   The host name or IP address of the database
+                             machine.
+    [Port]                   The database port
+    [DB Name]                The name of the Deadline database.
+    [SSL]                    True if SSL/TLS should be used when connecting
+                             to the Database server, False otherwise.
+    [Client Certificate]     The path to a client x.509 certificate to
+                             present when connecting using SSL/TLS. Ignored
+                             if SSL is False.
+    [Certificate Password]   The password to the client certificate provided.
+                             Ignored if SSL is False, or if no certificate
+                             was provided. If left empty and a password is
+                             required, you will be prompted to enter it.
+    [Authenticate]           True if Deadline needs to authenticate in order
+                             to interact with the Database, False otherwise.
+    [Username]               The username with which to authenticate. If
+                             empty, and both Authenticate and SSL are true,
+                             the client certificate will be used instead.
+                             Ignored if Authenticate is False.
+    [Password]               The password for the specified user. Ignored if
+                             Authenticate is False, or if no user name was
+                             provided. If empty and both 'Authenticate' and
+                             'Username' are specified, you will be prompted
+                             for the password.
+    [Replica Set]            The name of the Replica set which the Database
+                             belongs to, if applicable.
+    [Split DB]               Whether or not to split Deadline data across
+                             multiple databases. These databases will be
+                             prefixed by <DB Name> (Default: False).
+
+
+ConnectToBalancerLog
+  Connect to Balancer to watch its log in real time. Press Enter at any time to
+  disconnect from the Balancer.
+    [BalancerName]           The balancer to connect to
+    [ShowWindow]             If a log window should be displayed (optional,
+                             defaults to false)
+
+
+ConnectToLicenseForwarderLog
+  Connect to License Forwarder to watch its log in real time. Press Enter at any
+  time to disconnect from the License Forwarder.
+    [LicenseForwarderName]   The license forwarder to connect to
+    [ShowWindow]             If a log window should be displayed (optional,
+                             defaults to false)
+
+
+ConnectToPulseLog
+  Connect to Pulse to watch its log in real time. Press Enter at any time to
+  disconnect from the slave.
+    [PulseName]              The pulse to connect to
+    [ShowWindow]             If a log window should be displayed (optional,
+                             defaults to false)
+
+
+ConnectToSlaveLog
+  Connect to a remote slave to watch its log in real time. Press Enter at any
+  time to disconnect from the slave.
+    [SlaveName]              The slave to connect to
+    [ShowWindow]             If a log window should be displayed (optional,
+                             defaults to false)
+
+
+CreateCloudRegion
+  Creates a new Cloud Region.
+    [Name]                   The name of the Cloud Region
+    [Plugin Name]            The Cloud Plugin name
+    [Config File]            Path to Cloud Region config file
+
+
+CreateMongoDBUser
+  Attempts to create a Deadline User in the given database. The user will be
+  created with 'readWriteAnyDatabase' and 'clusterMonitor' roles.
+    [Connection String]      The connection string that specifies how to
+                             connect to the database (e.g.
+                             mongodb://<host>:<port>).
+    [Authentication Type]    The Type of authentication mechanism to use.
+                             Only X509 is currently supported.
+    [Username (or Certifica] The client certificate (X509) in PKCS12 format.
+    [Password]               The password required to decrypt the client
+                             certificate (X509), if applicable. If left empty
+                             and a password is required, you will be prompted
+                             for it.
+
+
+CreateSpotFleet
+  Creates a spot fleet for a given infrastructure
+    [templateJSONFile]       Path to a Json file with Spot fleet
+                             configuration information in the format:
+                             {"StackName": "", "Capacity": 1,
+                             "InstanceTypes": [], "SpotPrice": 1, "AmiId":
+                             "", "AmiName": "", "KeyName": "",
+                             "AvailabilityZones": [], "AWSPortalRequestType":
+                             "", "IdleTime": 2, "Groups": [], "Pools": [],
+                             "InstanceTags": {} }
+    [--no-resource-tracker]  Use of the Deadline Resource Tracker requires
+                             that your custom AMIs have Deadline Client
+                             10.0.27 or later installed on them. If enabled,
+                             the Deadline Resource Tracker will help optimize
+                             your resources by terminating instances and Spot
+                             Fleet requests that don't appear to be behaving
+                             as expected. We recommend upgrading your AMIs
+                             and enabling the Deadline Resource Tracker.
+
+
+DeleteBalancer
+  Deletes the Balancer.
+    [Balancer Name(s)]       The Balancer name, or a list of Balancer names
+                             separated by commas.
+
+
+DeleteGroup
+  Deletes the group.
+    [Group Name]             The group name
+
+
+DeleteJob
+  Deletes the job(s).
+    [Job ID(s)]              The job ID, or a list of job IDs separated by
+                             commas
+
+
+DeleteLimitGroup
+  Deletes the limit.
+    [Limit Name(s)]          The limit name, or a list of names separated by
+                             commas
+
+
+DeletePool
+  Deletes the pool.
+    [Pool Name]              The pool name
+
+
+DeleteProxyServer
+  Deletes specified Proxy Server(s).
+    [Proxy Server Name(s)]   The Proxy Server name, or list of
+                             comma-separated names.
+
+
+DeletePulse
+  Deletes the pulse.
+    [Pulse Name(s)]          The pulse name, or a list of pulse names
+                             separated by commas
+
+
+DeleteSlave
+  Deletes the slave.
+    [Slave Name(s)]          The slave name, or a list of slave names
+                             separated by commas
+
+
+DeleteUser
+  Deletes the user.
+    [User Name(s)]           The user name, or a list of names separated by
+                             commas
+
+
+DeleteUserGroup
+  Deletes the User Groups with the given user group name.
+    [User Group Name]        The user group name
+
+
+DoHouseCleaning
+  Performs house cleaning operations.
+    [Check Last Time]        Optional. If true, house cleaning will only be
+                             performed if the appropriate amount of time has
+                             passed since the last check (true/false). This
+                             is always True if a mode is specified.
+    [Verbose]                Optional. If logging should be enabled
+                             (true/false).
+    [Log Repo History]       Optional. If a history entry should be logged
+                             (true/false). This is ignored if a mode other
+                             than 'All' is specified.
+    [Mode]                   Optional. If not specified, all housecleaning
+                             operations will be performed. Available modes
+                             are: All, CleanupCompletedJobs,
+                             DeleteUnsubmittedJobs, PurgeDeletedJobs,
+                             CleanupObsoleteSlaves, PurgeOldSlaveReports,
+                             CleanupRepoValidations, PurgeOldStatistics,
+                             CleanupDatabase, PurgeObsoleteAWSPortalSlaves
+
+
+DoPendingJobScan
+  Scans for pending jobs to be released and pending job events to be processed.
+    [Check Last Time]        Optional. If true, the pending job scan will
+                             only be performed if the appropriate amount of
+                             time has passed since the last check
+                             (true/false).
+    [Verbose]                Optional. If logging should be enabled
+                             (true/false).
+    [Log Repo History]       Optional. If a history entry should be logged
+                             (true/false).
+    [Region]                 Optional. The region to be used for path
+                             mapping.
+
+
+DoRepositoryRepair
+  Performs repository repair operations.
+    [Check Last Time]        Optional. If true, a repository repair will only
+                             be performed if the appropriate amount of time
+                             has passed since the last check (true/false).
+                             This is always True if a mode is specified.
+    [Verbose]                Optional. If logging should be enabled
+                             (true/false).
+    [Log Repo History]       Optional. If a history entry should be logged
+                             (true/false). This is ignored if a mode other
+                             than 'All' is specified.
+    [Mode]                   Optional. If not specified, all repair
+                             operations will be performed. Available modes
+                             are: All, FindOrphanedTasks,
+                             FindOrphanedLimitStubs, FindStalledSlaves,
+                             FindStalledPulses, FindStalledBalancers
+
+
+ExecuteScript
+  Executes the script.
+    [Filename]               The path to a given script file
+
+
+ExecuteScriptNoGui
+  Executes the script without importing any GUI elements.
+    [Filename]               The path to a given script file
+
+
+Exit
+  Exit Deadline Interactive mode. Equivalent to Quit.
+
+
+FailJob
+  Fails a job.
+    [Job ID(s)]              The job ID, or a list of job IDs separated by
+                             commas
+
+
+FailJobTask
+  Fails the specified task for the job.
+    [Job ID]                 The job ID
+    [Task ID]                The task ID
+
+
+FailJobTasks
+  Fails the specified tasks for the job.
+    [Job ID]                 The job ID
+    [Task IDs]               The comma separated list of task IDs
+
+
+FarmReports
+  Allows you to view farm reports. If a report name is specified, that report
+  will instead be automatically be exported to the given file.
+    [Report Name]            The name of an existing report
+    [Start Date]             The start date, in yyyy-MM-dd format
+    [End Date]               The end date, in yyyy-MM-dd format
+    [Export Mode]            CSV or TSV
+    [Export File Name]       The file to export to
+
+
+FileCheck
+  Checks the read/write permissions on the file.
+    [ReadOnly/WriteOnly]     Checks both if omitted (optional)
+    [Quiet]                  Print only SUCCESS or errors (optional)
+    [Filename]               The file to check
+
+
+GenerateRSAKeys
+  Creates and saves RSA key-pairs for internal use by Deadline.
+  Administrator/root privileges might be required to create machine-wide keys.
+    [UserSpecific]           If True, keys specific to the current OS user
+                             will be generated. (Default: False)
+
+
+GenerateSubmissionInfoFiles
+  Generates a Job Info file and a Plugin Info file that can be used to submit a
+  new Job, based on an existing one.
+    [<Job ID>]               The ID of the Job on which to base the
+                             Submission Parameters.
+    [<Job Info File>]        The file to which the Job Submission Info will
+                             be output.
+    [<Plugin Info File>]     The file to which the Plugin Submission Info
+                             will be output.
+
+
+GetAssetServerInfo
+  Gets the value of the specified Asset Server Info setting if it exists.
+    [Name]                   The name of the Asset Server Info setting.
+
+
+GetAssetServerSetting
+  Gets the value of the specified Asset Server setting if it exists.
+    [Name]                   The name of the Asset Server setting.
+
+
+GetAWSPortalSetting
+  Gets the value of the specified AWS Portal setting if it exists.
+    [Name]                   The name of the AWS Portal setting.
+
+
+GetBalancerInfo
+  Retrieves BalancerInfo for a specified Balancer.
+    [Balancer Name]          The name of the Balancer to retrieve
+                             BalancerInfo for.
+
+
+GetBalancerInfos
+  Get BalancerInfo for all specified (by name) Balancers.
+    [Balancer Name(s)]       Comma-separated list of Balancer names to query.
+                             Leave blank to query all Balancers.
+
+
+GetBalancerNames
+  Prints a list of all Balancer names.
+
+
+GetBalancerSettings
+  Retrieves BalancerSettings for a specified Balancer.
+    [Balancer Name]          The name of the Balancer to retrieve
+                             BalancerSettings for.
+
+
+GetBalancerSettingsList
+  Get BalancerInfo for all specified (by name) Balancers.
+    [Balancer Name(s)]       Comma-separated list of Balancer names to query.
+                             Leave blank to query all Balancers.
+
+
+GetBinDirectory
+  Displays the bin directory of the Deadline Client software
+
+
+GetCloudPluginParams
+  Show all the parameters for a given cloud plugin.
+    [Plugin Name]            The name of the cloud plugin
+
+
+GetCommonAppPath
+  Prints out the path to the common application data folder.
+
+
+GetCurrentUserHomeDirectory
+  Displays the current user home directory of the Deadline Client software
+
+
+GetCurrentUserName
+  Display the current Deadline user
+
+
+GetDatabaseSettings
+  Prints the given repository's connection.ini file contents to stdout.
+    [Repository]             The path to the repository root
+
+
+GetDeletedJob
+  Display information for the deleted job(s).
+    [Job ID(s)]              The job ID, or a list of job IDs separated by
+                             commas
+    [Use Ini Display]        true/false (optional, default is false)
+
+
+GetDeletedJobIds
+  Displays all the deleted job IDs
+
+
+GetDeletedJobs
+  Displays information for all the deleted jobs.
+    [Use Ini Display]        true/false (optional, default is false)
+
+
+GetDirectory
+  Opens a folder browser and prints out the result.
+    [Initial Path]           The path to the initial directory (optional)
+
+
+GetEventPluginNames
+  Displays all event plugin names.
+
+
+GetFarmStatistics
+  Displays quick summary information of jobs and slaves
+
+
+GetFarmStatisticsEx
+  Displays quick summary information of jobs and slaves
+
+
+GetGroupNames
+  Displays all groups.
+
+
+GetHomeDirectory
+  Displays the home directory of the Deadline Client software
+
+
+GetIniFileSetting
+  Returns the value for the given key from the deadline.ini configuration file.
+    [Key]                    The key to get
+
+
+GetJob
+  Display information for the job(s).
+    [Job ID(s)]              The job ID, or a list of job IDs separated by
+                             commas
+    [Use Ini Display]        true/false (optional, default is false)
+
+
+GetJobAuxiliaryPath
+  Displays the Jobs Auxillary path
+    [Job ID]                 The job ID
+
+
+GetJobDetails
+  Displays the job details.
+    [Job ID(s)]              The job ID, or a list of job IDs separated by
+                             commas
+
+
+GetJobErrorReportFilenames
+  Gets the error report filenames for the job.
+    [Job ID]                 The job ID
+
+
+GetJobExtraInfoKeyValue
+  Gets the value from the extra info dictionary.
+    [Job ID]                 The job ID
+    [Extra Info Key]         The extra info key to get.
+
+
+GetJobIds
+  Displays all the job IDs
+
+
+GetJobIdsFilter
+  Display job Ids for jobs that fulfill the specified filters.
+    [Filter 1]               A filter, in the form of <Setting=Value>
+    [...]                    Additional filters...
+
+
+GetJobIdsFilterAnd
+  Display jobs that fulfill all the specified filters.
+    [Filter 1]               A filter, in the form of <Setting=Value>
+    [...]                    Additional filters...
+
+
+GetJobLogReportFilenames
+  Gets the log report filenames for the job.
+    [Job ID]                 The job ID
+
+
+GetJobPluginInfoKeyValue
+  Gets the value from the plugin info dictionary.
+    [Job ID]                 The job ID
+    [Plugin Info Key]        The plugin info key to get.
+
+
+GetJobs
+  Displays information for all the jobs.
+    [Use Ini Display]        true/false (optional, default is false)
+
+
+GetJobSetting
+  Gets the value of a setting for the job.
+    [Job ID]                 The job ID
+    [Job Setting]            The job setting
+
+
+GetJobsFilter
+  Display jobs that fulfill the specified filters.
+    [Filter 1]               A filter, in the form of <Setting=Value>
+    [...]                    Additional filters...
+
+
+GetJobsFilterAnd
+  Display jobs that fulfill all the specified filters.
+    [Filter 1]               A filter, in the form of <Setting=Value>
+    [...]                    Additional filters...
+
+
+GetJobsFilterIni
+  Display jobs that fulfill the specified filters, in an ini format.
+    [Filter 1]               A filter, in the form of <Setting=Value>
+    [...]                    Additional filters...
+
+
+GetJobsFilterIniAnd
+  Display jobs that fulfill all the specified filters, in an ini format.
+    [Filter 1]               A filter, in the form of <Setting=Value>
+    [...]                    Additional filters...
+
+
+GetJobStatistics
+  Displays quick summary information of jobs
+
+
+GetJobTask
+  Display the specified task for the job.
+    [Job ID]                 The job ID
+    [Task ID]                The task ID
+
+
+GetJobTaskAverageTime
+  Display average task render time for the job.
+    [Job ID]                 The job ID
+
+
+GetJobTaskAverageTimeNorm
+  Display average task normalized render time for the job.
+    [Job ID]                 The job ID
+
+
+GetJobTaskIds
+  Display the task IDs for the job.
+    [Job ID]                 The job ID
+
+
+GetJobTaskLimit
+  Displays the task limit value for job.
+
+
+GetJobTasks
+  Display the tasks for the job.
+    [Job ID]                 The job ID
+    [Use Ini Display]        true/false (optional, default is false)
+
+
+GetJobTaskTotalTime
+  Display total task render time for the job.
+    [Job ID]                 The job ID
+
+
+GetJobTaskTotalTimeNorm
+  Display total task normalized render time for the job.
+    [Job ID]                 The job ID
+
+
+GetLicenseMode
+  Gets the Deadline License Mode
+
+
+GetLicenseServer
+  Gets the Deadline License Server
+
+
+GetLimitGroup
+  Displays information for the limit.
+    [Limit  Name(s)]         The limit name, or a list of names separated by
+                             commas
+    [Use Ini Display]        true/false (optional, default is false)
+
+
+GetLimitGroupNames
+  Display all limit names.
+
+
+GetLimitGroups
+  Displays information for all limits.
+    [Use Ini Display]        true/false (optional, default is false)
+
+
+GetMachinesRenderingJob
+  Display the machine names of the slaves that are rendering the job. If the
+  second parameter is 'true', the machine IP addresses will be shown instead. If
+  the third parameter is 'true', then duplicate machine names and ip addresses
+  will be shown.
+    [Job ID]                 The job ID
+    [Get IP Address]         true/false (optional, default is false)
+    [Get Duplicates]         true/false (optional, default is false)
+
+
+GetMajorVersion
+  Gets the Deadline Major Version
+
+
+GetMaximumPriority
+  Displays the maximum priority value for jobs.
+
+
+GetNetworkDrives
+  Display all network drives
+
+
+GetPathMappings
+  Returns a list of all path mappings that can will be applied in the current
+  context. Uses the path mappings in the Repository Options.
+
+
+GetPluginNames
+  Displays all plugin names.
+
+
+GetPoolNames
+  Displays all pool names.
+
+
+GetProcess
+  Displays information for all running processes with the given name.
+    [Process Name]           Process name to search for
+    [Use Ini Display]        true/false (optional, default is false)
+
+
+GetProcesses
+  Displays information for all running processes.
+    [Use Ini Display]        true/false (optional, default is false)
+
+
+GetProcessNames
+  Displays all running process names.
+    [Process Name]           Process name to search for (optional)
+
+
+GetProxyServerInfo
+  Get ProxyServerInfo for a specified (by name) Proxy Server.
+    [Proxy Server Name]      Name of the Proxy Server to query.
+
+
+GetProxyServerInfos
+  Get ProxyServerInfo for all specified (by name) Proxy Servers.
+    [Proxy Server Name(s)]   Comma-separated list of Proxy Server names to
+                             query. Leave blank to query all Proxy Servers.
+
+
+GetProxyServerNames
+  Display all Proxy Server names.
+
+
+GetProxyServerSettings
+  Get ProxyServerInfo for a specified (by name) Proxy Server.
+    [Proxy Server Name]      Name of the Proxy Server to query.
+
+
+GetProxyServerSettingsList
+  Get ProxyServerSettings for all specified (by name) Proxy Servers.
+    [Proxy Server Name(s)]   Comma-separated list of Proxy Server names to
+                             query. Leave blank to query all Proxy Servers.
+
+
+GetPublicEncryptionKey
+  Prints out the Public Key used for encryption of messages sent to this
+  Deadline client, in XML format. This creates a key if one is not already
+  present, and therefore might require administrator/root privileges when
+  retrieving the machine-wide key.
+    [UserSpecific]           If True, key specific to the current OS user
+                             will be returned. (Default: False)
+
+
+GetPublicSigningKey
+  Prints out the Public Key used for verification of signatures by this Deadline
+  client, in XML format. This creates a key if one is not already present, and
+  therefore might require administrator/root privileges privileges when
+  retrieving the machine-wide key.
+    [UserSpecific]           If True, key specific to the current OS user
+                             will be returned. (Default: False)
+
+
+GetPulseInfo
+  Gets the pulse information.
+    [Pulse Name]             The pulse name
+
+
+GetPulseInfos
+  Gets the pulse information for the specified pulses or all pulses.
+    [Pulse Name(s) or none]  The pulse name, or a list of pulse names
+                             separated by commas, or none to retrieve all
+                             pulse info
+
+
+GetPulseNames
+  Get pulse names.
+    [None]                   None
+
+
+GetPulseSettings
+  Gets the pulse settings for a specified pulse.
+    [Pulse Name]             The pulse name
+
+
+GetPulseSettingsList
+  Gets the pulse settings for specified or all pulses.
+    [Pulse Name(s) or none]  The pulse name, or a list of pulse names
+                             separated by a comma, or none to retrieve all
+                             pulse settings
+
+
+GetRegistryKeyValue
+  Returns the specified value for the specified registry key.
+    [Key Name]               The name of the registry key
+    [Value Name]             The name of the value to get
+    [Default Value]          (optional) The default value to return
+
+
+GetRepositoryFilePath
+  Returns the appropriate full path to the given file in the Repository.
+    [FilePath]               The repository's file path to retrieve.
+    [Custom]                 Whether or not to check the Custom folder first.
+
+
+GetRepositoryOption
+  Gets the value of the provided Repository Option if it exists and is exposed.
+    [Repository Option]      The name of the Repository Option we want to get
+
+
+GetRepositoryOptions
+  Displays the list of all exposed Repository Options.
+
+
+GetRepositoryOptionsWithValues
+  Displays the list of all exposed Repository Options and their values.
+
+
+GetRepositoryPath
+  Returns the appropriate full path to the given subdirectory of the Repository.
+    [Subdir]                 The repository's sub-directory to retrieve.
+    [Custom]                 Whether or not to check the Custom folder first.
+
+
+GetRepositoryRoot
+  Display the repository network root
+
+
+GetRepositoryRoots
+  Display all repository roots in the Deadline config file
+
+
+GetRepositoryVersion
+  Gets the Deadline Repository and Integration Version
+
+
+GetSettingsDirectory
+  Displays settings directory of the Deadline Client software
+
+
+GetSlave
+  Display information for the slave.
+    [Slave Name(s)]          The slave name, or a list of slave names
+                             separated by commas
+    [Use Ini Display]        true/false (optional, default is false)
+
+
+GetSlaveErrorReportFilenames
+  Gets the error report filenames for the slave.
+    [Slave Name]             The slave name
+
+
+GetSlaveExtraInfoKeyValue
+  Gets the value from the extra info dictionary.
+    [Slave Name]             The name of the slave
+    [Extra Info Key]         The extra info key to get.
+
+
+GetSlaveInfo
+  Gets the info value for the slave.
+    [Slave Name]             The slave name
+    [Slave Info Name]        The name of the info
+
+
+GetSlaveLogReportFilenames
+  Gets the log report filenames for the slave.
+    [Slave Name]             The slave name
+
+
+GetSlaveNames
+  Displays all the slave names.
+
+
+GetSlaveNamesInGroup
+  Displays the slave names that have been assigned to the specified group.
+    [Group Name(s)]          The group name, or a list of group names
+                             separated by commas
+
+
+GetSlaveNamesInPool
+  Displays the slave names that have been assigned to the specified pool.
+    [Pool Name(s)]           The pool name, or a list of pool names separated
+                             by commas
+
+
+GetSlaveReportFilenames
+  Gets the report filenames for the slave.
+    [Slave Name]             The slave name
+
+
+GetSlaves
+  Displays information for all the slave names.
+    [Use Ini Display]        true/false (optional, default is false)
+
+
+GetSlaveSetting
+  Gets the value of a setting for the slave.
+    [Slave Name]             The slave name
+    [Slave Setting]          The slave setting
+
+
+GetSlavesRenderingJob
+  Display the slaves that are rendering the job.
+    [Job ID]                 The job ID
+
+
+GetSlaveStatistics
+  Displays quick summary information of slaves
+
+
+GetSubmissionInfo
+  Displays common submission information that can be used by job submission
+  scripts.
+    [Type(s)]                A list of specific submission information. Each
+                             type should be separated by a space. The
+                             available types are: version, shortversion,
+                             pools, groups, maxpriority, tasklimit, homedir,
+                             userhomedir, repodir:[folder],
+                             repodirnocustom:[folder], filetransferserver.
+                             Note that repodir and repodirnocustom can be
+                             specified multiple times, and each one should be
+                             followed by a colon and a repository folder.
+
+
+GetTaskProgress
+  Display progress information about the job's tasks.
+    [Job ID]                 The job ID
+
+
+GetUser
+  Displays information for the user.
+    [User Name(s)]           The user name, or a list of names separated by
+                             commas
+    [Use Ini Display]        true/false (optional, default is false)
+
+
+GetUserGroup
+  Displays all User names in User Group.
+    [User Group Name]        The user group name
+
+
+GetUserGroupNames
+  Display all the user group names.
+
+
+GetUserGroupsForUser
+  Display all the user group names for the user.
+    [User Name]              The user name
+
+
+GetUserNames
+  Display all the user names.
+
+
+GetUsers
+  Displays information for all users.
+    [Use Ini Display]        true/false (optional, default is false)
+
+
+GetVersion
+  Gets the Deadline Version
+
+
+Groups
+   Displays all groups.
+
+
+Help
+  Displays the help documentation
+    [Command Name]           The name of a specific command (optional)
+
+
+ImportJob
+  Imports the archived job.
+    [Delete Archive]         If the original archive should be deleted
+                             (true/false).
+    [Archived Job File]      The archived job file. Specify multiple files as
+                             separate parameters.
+
+
+InitApplicationPlugins
+  Initializes the specified application plugins. This will set their state to
+  disabled if they do not already exist in the database.
+    [Plugin/s]               A list of one or more application plugins to
+                             initialize. This will not disable plugins that
+                             already have a valid setting for state.
+
+
+InstallLauncherService
+  Installs the Deadline Launcher Service, and optionally starts it.
+    [true/false]             Whether or not to start the Launcher Service
+                             after it has been installed (optional)
+
+
+InstallLauncherServiceLogOn
+  Installs the Deadline Launcher Service with the given account, and optionally
+  starts it.
+    [User Name]              The account user name
+    [Password]               The account password. If empty or not specified,
+                             the caller will be prompted to enter it via
+                             standard input.
+    [true/false]             Whether or not to start the Launcher Service
+                             after it has been installed (optional)
+
+
+JobStatistics
+  Shows statistics for jobs that have completed between the specified dates,
+  inclusive.
+    [Start Date]             The start date in the form yyyy-MM (ie: 2010-01)
+    [End Date]               The end date in the form yyyy-MM (ie: 2010-12)
+    [Pool Filter]            A comma separate list of pools (or an empty
+                             string for no filter)
+    [Group Filter]           A comma separate list of groups (or an empty
+                             string for no filter)
+    [Plugin Filter]          A comma separate list of plugins (or an empty
+                             string for no filter)
+
+
+JobSubmissionInfoFromJob
+  Generates a list of Job Submission Parameters that can be used to submit a
+  similar Job to the one provided.
+    [<Job ID>]               The ID of the Job on which to base the Job
+                             Submission Parameters.
+
+
+Json
+  Turn on output as Json. Then run the next command if given.
+
+
+KillProcess
+  Kills all processes with specified name or PID.
+    [Process Name Or ID]     Name of the process or process ID
+
+
+LaunchPreviewStyleWindow
+  Previews a style.
+    [Style]                  The style info to preview (JSON format)
+
+
+LimitGroups
+  Display all limit names.
+
+
+MapDrives
+  Maps mapped drives from network settings on Windows.
+
+
+Multi
+  Submits multiple jobs at once.
+    [dependent]              This flag makes each job in the list of jobs
+                             specified dependent on the previous job. This is
+                             shorthand for specifying -dependsonprevious for
+                             each job being submitted
+    [notify]                 This flag displays a notification window after
+                             the jobs have been submitted
+    [job <Job Files>]        This flag must precede each list of files for
+                             each individual job being submitted. You can
+                             also add the -dependsonprevious flag to make a
+                             single job dependent on the previous job
+
+
+Networks
+  Display all repository roots in the Deadline config file
+
+
+NewUserGroups
+  Creates new User Groups with the given user group names, if they do not
+  already exist.
+    [User Group Name(s)]     The user group name, or a list of user group
+                             names separated by commas
+
+
+NoJson
+  Turn off output as Json. Then run the next command if given.
+
+
+Notify
+  Submits a job and notifies upon completion.
+    [drop]                   Specify this flag to do a drop job
+    [notify]                 Specify this flag to display a notification when
+                             submission completes
+    [deleteFiles]            Specify this flag to delete local files after
+                             submission
+
+
+ParseFrameList
+  Parses a frame list.
+    [frame list]             The list of frames to parse
+    [combine frames]         If subsequent frames should be combined
+                             (optional, defaults to true)
+
+
+PendJob
+  Marks the job as pending (if it has job dependencies, required assets, or
+  scheduling settings).
+    [Job ID(s)]              The job ID, or a list of job IDs separated by
+                             commas
+
+
+Plugins
+  Displays all plugin names.
+
+
+PluginSubmissionInfoFromJob
+  Generates a list of Plugin Submission Parameters that can be used to submit a
+  similar Job to the one provided.
+    [<Job ID>]               The ID of the Job on which to base the Plugin
+                             Submission Parameters.
+
+
+Pools
+  Displays all pool names.
+
+
+PopulateAssetServerDefaultSettings
+  Populate the default settings for Asset Server.
+    [Force]                  Whether to repopulate the default settings for
+                             asset server (this may override existing
+                             settings)
+    [Global Whitelist Patte] The file containing the global whitelist
+                             patterns
+
+
+PopulatePythonSync
+  Adds the PythonSync zip to the user folder in the appropriate place.
+    [PopulatePythonSync]     The path to the PythonSync.zip.
+
+
+PopupMessage
+  Displays a popup message.
+    [Message]                The message to display. This can be a string, or
+                             a path to a file that contains a message.
+    [Delete Message File]    (optional) If the message is stored in a file,
+                             specify 'true' to delete the file after.
+
+
+PrettyJson
+  Turn on output as PrettyJson. Then run the next command if given.
+
+
+Prompt
+  Turn on interactive Deadline Command mode.
+
+
+PurgeDeletedJob
+  Purges the deleted job(s).
+    [Job ID(s)]              The deleted job ID, or a list of deleted job IDs
+                             separated by commas
+
+
+PurgeObsoleteGroups
+  Purges groups that are no longer in use.
+    [Group Name]             The replacement group for jobs that are using
+                             obsolete groups (optional)
+
+
+PurgeObsoletePools
+  Purges pools that are no longer in use.
+    [Pool Name]              The replacement pool for jobs that are using
+                             obsolete pools (optional)
+
+
+Quit
+  Exit Deadline Interactive mode. Equivalent to Exit.
+
+
+ReleasePendingJob
+  Releases the pending job.
+    [Job ID(s)]              The job ID, or a list of job IDs separated by
+                             commas
+
+
+RemoteControl
+  Send the remote command to the Deadline Launcher running on the specified
+  machine(s).
+    [Machine Name(s)]        The machine name, or a list of machine names
+                             separated by commas.
+    [Remote Command]         The remote command. The available commands are
+                             StopLauncher, LaunchSlave, LaunchAllSlaves,
+                             LaunchNewSlave, RemoveSlave, LaunchSlaveDelay,
+                             StopSlave, RelaunchSlave, ForceStopSlave,
+                             ForceRelaunchSlave, OnLastTaskComplete,
+                             LaunchPulse, StopPulse, RestartPulse,
+                             RemotePulseCommand, LaunchProxyServer,
+                             StopProxyServer, RestartProxyServer,
+                             LaunchBalancer, StopBalancer, RestartBalancer,
+                             RemoteBalancerCommand, LaunchMonitor,
+                             StopMonitor, StopConfig, RestartMachine,
+                             StartMachine, ShutdownMachine, Execute,
+                             ExecuteNoWait
+    [Argument]               The argument for LaunchSlave, LaunchNewSlave,
+                             and RemoveSlave is the name of the Slave. The
+                             argument for Execute and ExecuteNoWait is the
+                             command to execute. Valid arguments for
+                             OnLastTaskComplete are Continue, StopSlave,
+                             RestartSlave, CheckForTasks, CancelTask,
+                             ClearFailureCache, ShutdownMachine [comment] and
+                             RestartMachine [comment]. [comment] is a message
+                             that can be sent to explain why the shutdown or
+                             restart machine command was executed. It will be
+                             recorded in the machines event log. Valid
+                             arguments for RemotePulseCommand are
+                             HouseCleaning, PendingJobScan, RepositoryRepair,
+                             and PowerManagement. Valid arguments for
+                             RemoteBalancerCommand are Balancing.
+
+
+RemoveCloudRegion
+  Remove a Cloud Region. This will terminate any running instances that have
+  been started in this region. Also, this will purge the region from Balancer,
+  Pulse and User settings. Additionally, this will remove any mapped paths for
+  this region.
+    [CloudRegion]            The name of the Cloud Region
+
+
+RemoveGroupFromSlave
+  Removes a group from the slave.
+    [Slave Name(s)]          The slave name, or a list of slave names
+                             separated by commas
+    [Group Name(s)]          The group name, or a list of group names
+                             separated by commas
+
+
+RunAWSPortalS3Setup
+  Removes AWS entities from the database that do not belong to the AWS account
+  of the given credentials.
+
+
+RemovePoolFromSlave
+  Removes a pool from the slave.
+    [Slave Name(s)]          The slave name, or a list of slave names
+                             separated by commas
+    [Pool Name(s)]           The pool name, or a list of pool names separated
+                             by commas
+
+
+RemoveRegistryKeyValue
+  Removes the specified value for the specified registry key. Enable Recursive
+  to delete sub keys.
+    [Key Name]               The name of the registry key
+    [Value Name]             The name of the value to remove
+    [Recursive]              True/False
+
+
+RemoveSlavesFromJobMachineLimitList
+  Removes slaves from the job's listed slaves.
+    [Job ID(s)]              The job ID, or a list of job IDs separated by
+                             commas
+    [Slaves]                 The slaves to remove, separated by commas
+
+
+RemoveSlavesFromLimitGroupList
+  Removes slaves from the limit's listed slaves.
+    [Limit Name(s)]          The limit name, or a list of limit names
+                             separated by commas
+    [Slaves]                 The slaves to remove, separated by commas
+
+
+RemoveUserFromUserGroup
+  Removes a user from the user group.
+    [User Name(s)]           The user name, or a list of user names separated
+                             by commas
+    [User Group Name(s)]     The user group name, or a list of user group
+                             names separated by commas
+
+
+RenderJob
+  Renders a job immediately on the local machine without submitting it to the
+  repository.
+    [JobInfoFile]            The job info file
+    [PluginInfoFile]         The plugin info file
+    [Auxiliary Files]        Additional optional files to submit with the job
+                             (specify each file as a separate argument)
+
+
+RequeueJob
+  Requeues the job.
+    [Job ID(s)]              The job ID, or a list of job IDs separated by
+                             commas
+
+
+RequeueJobTask
+  Requeues the specified task for the job.
+    [Job ID]                 The job ID
+    [Task ID]                The task ID
+
+
+RequeueJobTasks
+  Requeues the specified tasks for the job.
+    [Job ID]                 The job ID
+    [Task IDs]               The comma separated list of task IDs
+
+
+ResubmitJob
+  Resubmits an existing job with a new frame list and chunksize.
+    [Job ID]                 The ID of the job to resubmit
+    [Frame List]             The new frame list
+    [Chunk Size]             The new chunk size
+    [Submit Suspended]       If the job should be submitted suspended
+                             (optional)
+
+
+ResumeFailedJob
+  Resumes the failed job.
+    [Job ID(s)]              The job ID, or a list of job IDs separated by
+                             commas
+
+
+ResumeFailedJobTask
+  Resumes the specified failed task for the job.
+    [Job ID]                 The job ID
+    [Task ID]                The task ID
+
+
+ResumeFailedJobTasks
+  Resumes the specified failed tasks for the job.
+    [Job ID]                 The job ID
+    [Task IDs]               The comma separated list of task IDs
+
+
+ResumeJob
+  Resumes the job.
+    [Job ID(s)]              The job ID, or a list of job IDs separated by
+                             commas
+
+
+ResumeJobTask
+  Resumes the specified suspended task for the job.
+    [Job ID]                 The job ID
+    [Task ID]                The task ID
+
+
+ResumeJobTasks
+  Resumes the specified suspended tasks for the job.
+    [Job ID]                 The job ID
+    [Task IDs]               The comma separated list of task IDs
+
+
+Root
+  Display the repository network root
+
+
+RunAWSPortalS3Setup
+  Creates S3 buckets and access policies/users/roles for use with AWS Portal
+  Asset Server.
+    [Region]                 An AWS Region
+
+
+RunCommandForRepository
+  Runs the given command on a given repository.
+    [Connection Type]        The Connection type can be 'Direct' or 'Proxy'
+    [Connection String]      Path to the repository root or the URL of a
+                             proxy repository.
+    [Command]                The command to execute followed by any
+                             additional arguments.
+
+
+SaveBalancerInfo
+  Save a specified BalancerInfo object to the Database.
+    [BalancerInfo Object]    JSON Object representing a BalancerInfo to save.
+
+
+SaveBalancerSettings
+  Save a specified BalancerSettings object to the Database.
+    [BalancerSettings Objec] JSON Object representing a BalancerSettings to
+                             save.
+
+
+SaveCertificatePassword
+  Allows you to change the password that is used to decrypt the given client
+  certificate on this Machine, when connecting to the specified repository. Note
+  that this is not currently implemented when using a Proxy connection.
+    [Connection String]      Required. When using Direct connection, this is
+                             the path to the root of the Repository. When
+                             using a Proxy connection, this is a string of
+                             format <HOST>:<PORT>.
+    [Client Certificate]     Required. The path to the x509 client
+                             certificate that is used to connect to the
+                             Repository with TLS/SSL.
+    [Certificate Password]   Optional. The password to encrypt and save on
+                             this machine. If blank, will clear any existing
+                             saved password for the specified certificate.
+                             Default is empty (ie, will clear existing
+                             password).
+    [All Users]              Optional. If true, the specified password will
+                             be saved for all users on this machine.
+                             Otherwise, it will only be saved for the current
+                             user. Defaults to False.
+
+
+SaveProxyServerInfo
+  Save a specified ProxyServerInfo object to the Database.
+    [ProxyServerInfo Object] JSON Object representing a ProxyServerInfo to
+                             save.
+
+
+SaveProxyServerSettings
+  Save a specified ProxyServerSettings object to the Database.
+    [ProxyServerSettings Ob] JSON Object representing a ProxyServerSettings
+                             to save.
+
+
+SavePulseInfo
+  Saves a specified PulseInfo object.
+    [PulseInfo object]       The PulseInfo object
+
+
+SavePulseSettings
+  Saves the pulse settings.
+    [Pulse Settings object]  The pulse settings object
+
+
+IsInPath
+  Works like 'which' on Unix.
+    [File Name]              The name of the file to check.
+
+
+SelectDependencies
+  Allows you to select a list of dependencies, then prints them to stdout.
+    [Initial Dependencies]   A comma separated list of the initially selected
+                             dependencies (optional)
+
+
+SelectDirectory
+  Opens a folder browser and prints out the result.
+    [Initial Path]           The path to the initial directory (optional)
+
+
+SelectFilenameLoad
+  Opens a file load dialog and prints out the result.
+    [Initial Path]           The path to the initial filename (optional)
+    [Filter]                 The filter string (optional) - an example filter
+                             would look like "Text Files (*.txt);;All Files
+                             (*.*)"
+
+
+SelectFilenameSave
+  Opens a file save dialog and prints out the result.
+    [Initial Path]           The path to the initial filename (optional)
+    [Filter]                 The filter string (optional) - an example filter
+                             would look like "Text Files (*.txt);;All Files
+                             (*.*)"
+
+
+SelectLimitGroups
+  Allows you to select a list of limits, then prints them to stdout.
+    [Initial Limits]         A comma separated list of the initially selected
+                             limits (optional)
+
+
+SelectMachineList
+  Allows you to select a list of machines, then prints them to stdout.
+    [Initial Machines]       A comma separated list of the initially selected
+                             machines (optional)
+
+
+SelectNetwork
+  Select the repository root from a dialog
+
+
+SelectRepository
+  Select the repository root from a dialog
+
+
+SendEmail
+  Sends an email.
+    [to <Email>]             TO email address
+    [subject <Subject>]      The subject
+    [message <Message>]      The message, or the path to the file that
+                             contains the message
+    [cc <Email>]             CC email address (optional)
+    [attach <Attachment>]    Attachment file (optional)
+
+
+SendPopupMessage
+  Sends a popup message to the Deadline running on the specified machine(s).
+    [Machine Name(s)]        The machine name, or a list of machine names
+                             separated by commas.
+    [Message]                The message to send. This can be a string, or a
+                             path to a file that contains a message.
+    [Delete Message File]    (optional) If the message is stored in a file,
+                             specify 'true' to delete the file after.
+
+
+SetAssetCrawlerEnabled
+  Dis/enable an Asset Crawler for a given Cloud Region.
+    [Name]                   Name of the Cloud Region
+    [Enabled]                True/False
+
+
+SetAssetCrawlerSettings
+  Change the Asset Crawler settings for a Cloud Region.
+    [Name]                   Name of the Cloud Region
+    [Hostname]               Host name
+    [Port]                   Port number
+    [OS]                     Operating System (Windows, Linux, Mac OSX)
+
+
+SetAssetServerSetting
+  Sets the value of the specified Asset Server setting if it exists.
+    [Name]                   The name of the Asset Server setting.
+    [Value]                  The value to apply to the AWS Portal setting.
+
+
+SetAssetServerSetting
+  Sets the value of the specified Asset Server setting if it exists.
+    [Name]                   The name of the Asset Server setting.
+    [Value]                  The value to apply to the AWS Portal setting.
+
+
+SetAWSPortalSetting
+  Sets the value of the specified AWS Portal setting if it exists.
+    [Name]                   The name of the AWS Portal setting.
+    [Value]                  The value to apply to the AWS Portal setting.
+
+
+SetRegionEnabled
+  Enables or Disables Balancer features for the given Cloud Region.
+    [Name]                   Name of the Cloud Region
+    [Enabled]                True/False
+
+
+SetRegionBudget
+  Sets the budget of a Cloud Region.
+    [Name]                   Name of the Cloud Region
+    [Budget]                 Total Budget Amount
+
+
+SetCloudRegionEnabled
+  Enables or Disables the given Cloud Region.
+    [Name]                   Name of the Cloud Region
+    [Enabled]                True/False
+
+
+SetGroupsForSlave
+  Sets the groups for a slave.
+    [Slave Name(s)]          The slave name, or a list of slave names
+                             separated by commas
+    [Group Name(s)]          The group name, or a list of group names
+                             separated by commas
+
+
+SetIniFileSetting
+  Sets the value for the given key in the deadline.ini configuration file.
+    [Key]                    The key to be set
+    [Value]                  The value to set it to
+    [Set For All Users]      (optional) True/False
+
+
+SetInstallerVersion
+  Sets the client installer version
+    [Version]                The version string
+
+
+SetJobExtraInfoKeyValue
+  Sets the value of the specified key within the extra info dictionary.
+    [Job ID]                 The job ID
+    [Extra Info Key]         The extra info key to get.
+    [Value]                  The new value
+
+
+SetJobFrameRange
+  Modifies the job's frame range.
+    [Job ID(s)]              The job ID, or a list of job IDs separated by
+                             commas
+    [Frame List]             The new frame list
+    [Chunk Size]             The new chunk size
+
+
+SetJobMachineLimit
+  Sets the machine limit for the job.
+    [Job ID(s)]              The job ID, or a list of job IDs separated by
+                             commas
+    [Limit]                  The new limit
+    [Listed]                 The listed slaves
+    [Whitelist Flag]         true/false
+    [Limit Progress]         The limit progress (optional)
+
+
+SetJobMachineLimitListedSlaves
+  Sets the job's listed slaves.
+    [Job ID(s)]              The job ID, or a list of job IDs separated by
+                             commas
+    [Slaves]                 The slaves, separated by commas
+
+
+SetJobMachineLimitMaximum
+  Sets the job's machine limit.
+    [Job ID(s)]              The job ID, or a list of job IDs separated by
+                             commas
+    [Limit]                  The machine limit
+
+
+SetJobMachineLimitReleaseProgress
+  Sets the job's machine limit progress.
+    [Job ID(s)]              The job ID, or a list of job IDs separated by
+                             commas
+    [Limit Progress]         The limit progress
+
+
+SetJobMachineLimitWhiteListFlag
+  Sets the job's whitelist flag.
+    [Job ID(s)]              The job ID, or a list of job IDs separated by
+                             commas
+    [Whitelist]              True/False
+
+
+SetJobPluginInfoKeyValue
+  Sets the value of the specified key within the plugin info dictionary.
+    [Job ID]                 The job ID
+    [Plugin Info Key]        The plugin info key to get.
+    [Value]                  The new value
+
+
+SetJobSetting
+  Sets the value of a setting for the job.
+    [Job ID(s)]              The job ID, or a list of job IDs separated by
+                             commas
+    [Job Setting]            The job setting
+    [Value]                  The new value
+
+
+SetLimitGroup
+  Modifies or creates the limit.
+    [Limit Name]             The limit name
+    [Limit]                  The new limit
+    [Listed Slaves]          The listed slaves
+    [Whitelist Flag]         true/false
+    [Limit Progress]         The limit progress (optional)
+    [Excluded Slaves]        The excluded slaves (optional)
+
+
+SetLimitGroupListedSlaves
+  Sets the limit's listed slaves.
+    [Limit Name(s)]          The limit name, or a list of limit names
+                             separated by commas
+    [Slaves]                 The slaves, separated by commas
+
+
+SetLimitGroupMaximum
+  Sets the limit's limit.
+    [Limit Name(s)]          The limit name, or a list of limit names
+                             separated by commas
+    [Limit]                  The machine limit
+
+
+SetLimitGroupReleaseProgress
+  Sets the limit's progress.
+    [Limit Name(s)]          The limit name, or a list of limit names
+                             separated by commas
+    [Limit Progress]         The limit progress
+
+
+SetLimitGroupWhiteListFlag
+  Sets the limit's whitelist flag.
+    [Limit Name(s)]          The limit name, or a list of limit names
+                             separated by commas
+    [Whitelist]              True/False
+
+
+SetMinimumDeadlineVersion
+  Sets the minimum deadline version for the database.
+    [Installer Minimum]      The minimum version for the installer
+    [Client Minimum]         The minimum version for the client
+
+
+SetPoolsForSlave
+  Sets the pools for a slave.
+    [Slave Name(s)]          The slave name, or a list of slave names
+                             separated by commas
+    [Pool Name(s)]           The pool name, or a list of pool names separated
+                             by commas
+
+
+SetPromptTimeOut
+  If set to a value other than -1, this is the number of milliseconds before
+  Deadline Command will automatically exit while in interactive mode.
+
+
+SetRegionBudget
+  Sets the budget of a Cloud Region.
+    [Name]                   Name of the Cloud Region
+    [Budget]                 Total Budget Amount
+
+
+SetRegionEnabled
+  Enables or Disables Balancer features for the given Cloud Region.
+    [Name]                   Name of the Cloud Region
+    [Enabled]                True/False
+
+
+SetRegistryKeyValue
+  Adds and/or sets the specified value for the specified registry key.
+    [Key Name]               The name of the registry key
+    [Value Name]             The name of the value to set/add
+    [Value Data]             The string data to set the value to
+
+
+SetRepositoryOption
+  Sets the value of the provided Repository Option if it exists and is exposed.
+    [Repository Option]      The name of the Repository Option we want to set
+    [Value]                  The value to set for the Repository Option
+
+
+SetSlaveExtraInfoKeyValue
+  Sets the value of the specified key within the extra info dictionary.
+    [Slave Name]             The name of the slave.
+    [Extra Info Key]         The extra info key to get.
+    [Value]                  The new value
+
+
+SetSlaveSetting
+  Sets the value of a setting for the slave.
+    [Slave Name(s)]          The slave name, or a list of slave names
+                             separated by commas
+    [Slave Setting]          The slave setting
+    [Value]                  The new value
+
+
+SetUser
+  Modifies or creates the user.
+    [User Name]              The user name
+    [Email]                  Their email address
+    [Machine Name]           Their machine name
+    [Notify By Email]        If they want email notifications (true/false)
+    [Notify By Popup]        If they want popup notifications (true/false)
+    [User Group]             Optional. The user group (or list of groups
+                             separated by commas) to add the user to. By
+                             default, the user is already part of the
+                             Everyone group.
+
+
+SetUserForUserGroup
+  Removes a user from the user group.
+    [User Name(s)]           The user name, or a list of user names separated
+                             by commas
+    [User Group Name(s)]     The user group name, or a list of user group
+                             names separated by commas
+
+
+ShowMessageBox
+  Displays a simple dialog box and prints out the button selected.
+    [title <Title>]          The title
+    [message <Message>]      The message, or the path to the file that
+                             contains the message
+    [buttons <Buttons>]      A comma separated list of buttons (optional)
+
+
+ShowUserDialog
+  Displays a simple dialog box and prints out the button selected.
+    [title <Title>]          The title
+    [message <Message>]      The message
+    [buttons <Buttons>]      A comma separated list of buttons
+
+
+SlaveExists
+  Displays 'true' if the slave exists, 'false' if it does not.
+    [Slave Name]             The slave name
+
+
+Slaves
+  Displays all the slave names.
+
+
+StartLauncherService
+  Starts the Deadline Launcher Service if it is running.
+
+
+StartProcess
+  Starts the program or program associated with the file.
+    [Filename]               The path to a given application or file
+
+
+StopLauncherService
+  Stops the Deadline Launcher Service if it is running.
+
+
+SubmitBackgroundJob
+  Submits a job as a background process.
+    [notify]                 This flag displays a notification window after
+                             the jobs have been submitted
+    [<Job Files>]            The list of job files
+
+
+SubmitCommandLineJob
+  Submits a generic command line job to Deadline. The <STARTFRAME> and
+  <ENDFRAME> strings in the command line arguments will be replaced with the
+  actual start and end frame for each task. The <QUOTE> string in the command
+  line arguments will be replaced with a '"' character.
+    [executable [Value]]     Required: The command line executable.
+    [arguments [Value]]      Optional: The command line arguments.
+    [frames [Value]]         Required: The frame range to render.
+    [chunksize [Value]]      Optional: The task chunk size.
+    [pool [Value]]           Optional: The pool the job belongs to.
+    [group [Value]]          Optional: The group the job belongs to.
+    [priority [Value]]       Optional: The job priority (0 is the lowest).
+    [name [Value]]           Optional: The job name.
+    [department [Value]]     Optional: The job department.
+    [initialstatus [Value]]  Optional: The job's initial state
+                             (Active/Suspended).
+    [prop [Key=Value]]       Optional: Extra submission properties in the
+                             form Key=Value.
+
+
+SubmitJobAndNotify
+  Submits a job and notifies upon completion.
+    [deleteFiles]            Specify this flag to delete local files after
+                             submission
+    [<Job Files>]            The job files
+
+
+SubmitMultipleJobs
+  Submits multiple jobs at once.
+    [dependent]              This flag makes each job in the list of jobs
+                             specified dependent on the previous job. This is
+                             shorthand for specifying -dependsonprevious for
+                             each job being submitted
+    [notify]                 This flag displays a notification window after
+                             the jobs have been submitted
+    [job <Job Files>]        This flag must precede each list of files for
+                             each individual job being submitted. You can
+                             also add the -dependsonprevious flag to make a
+                             single job dependent on the previous job
+
+
+SuspendJob
+  Suspends the job.
+    [Job ID(s)]              The job ID, or a list of job IDs separated by
+                             commas
+
+
+SuspendJobNonRenderingTasks
+  Suspends the tasks that are not rendering for the job.
+    [Job ID(s)]              The job ID, or a list of job IDs separated by
+                             commas
+
+
+SuspendJobTask
+  Suspends the specified task for the job.
+    [Job ID]                 The job ID
+    [Task ID]                The task ID
+
+
+SuspendJobTasks
+  Suspends the specified tasks for the job.
+    [Job ID]                 The job ID
+    [Task IDs]               The comma separated list of task IDs
+
+
+TestProtectedConfig
+  Runs a test to make sure that a Repository's protected configuration file will
+  work properly on this machine.
+
+
+UndeleteJob
+  Undeletes the job(s).
+    [Job ID(s)]              The deleted job ID, or a list of deleted job IDs
+                             separated by commas
+
+
+UninstallLauncherService
+  Stops and uninstalls the Deadline Launcher Service.
+
+
+UpdateDatabaseSettings
+  Updates the given repository's connection.ini file with the given database
+  settings. This function does not perform any validation on the provided
+  settings. Note that any incorrect settings could prevent some or all Deadline
+  Clients pointing to this Repository from connecting to the Database
+    [Repository]             The path to the repository root
+    [DbType]                 The database type (currently only MongoDB)
+    [Host]                   The host name or IP address of the database
+                             machine
+    [Name]                   The database name
+    [Port]                   The database port
+    [AltPort]                The alternate database port (not currently used)
+    [SSL]                    If SSL should be used to connect (not currently
+                             used)
+    [Authenticate]           If authentication is required
+    [Username]               The username
+    [Password]               The password
+    [Replica Set]            The Replica set name
+    [Split DB]               If Database should be split (by default, it is
+                             disabled)
+
+
+UpdateEnvironmentSettings
+  Updates the Environment in the database.
+    [Environment]            The path to the environment file
+
+
+UpdateJobSubmissionDate
+  Updates the job submission date for the specified job to be the current date.
+    [Job ID]                 The job ID
+
+
+UpdatePathVariable
+  Appends the Deadline bin folder to the PATH environment variable
+
+
+UpdateScriptMenus
+  Updates the script menu configuration based on the given file.
+    [Script Menu File]       The file containing the script menu
+                             configuration
+
+
+UpgradePluginSettings
+  Used by installer to upgrade the plugins without overriding user configured
+  settings.
+
+
+Users
+  Display all the user names.
+
+
+Version
+  Gets the Deadline Version
+
+
+
+C:\Program Files\Thinkbox\Deadline10\bin>

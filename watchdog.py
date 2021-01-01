@@ -1,5 +1,6 @@
 app_name = "Deadline Watchdog"
 version = "dev"
+time_to_wait = 30
 
 import os
 from os import system
@@ -61,8 +62,10 @@ def watchdog():
     jobs = {}
     renjobs = deadline_utils.get_all_jobs("rendering")
     queuedjobs = deadline_utils.get_all_jobs("queued")
+    pendingjobs = deadline_utils.get_all_jobs("pending")
     jobs.update(queuedjobs)
     jobs.update(renjobs)
+    jobs.update(pendingjobs)
 
     # Get the jobfilters and format into a dict like:
     # {"FILTERNAME":[POOL, PRIORITY], "FILTERNAME2:[POOL, PRIORITY]"}
@@ -100,8 +103,8 @@ def watchdog():
 
     print(" ")
     _dashingLine()
-    print("Waiting 5 seconds...")
-    time.sleep(5)
+    print("Waiting {} seconds...".format(time_to_wait))
+    time.sleep(time_to_wait)
     watchdog()
 
     

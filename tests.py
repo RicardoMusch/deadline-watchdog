@@ -19,4 +19,4 @@ import deadline_utils
 
 #deadline_utils.set_job_setting(["5fa03ee220b6ac1ab4703235"], "priority", "100")
 
-deadline_utils.get_all_jobs2("rendering")
+deadline_utils.get_all_jobs("rendering")

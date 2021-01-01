@@ -1,6 +1,8 @@
 import subprocess
 import os
 import sys
+from random import randint
+from subprocess import PIPE
 
 def set_job_setting(jobs, settingname, value):
     "Sets the value of a setting for the job(s)."
@@ -54,55 +56,140 @@ def get_all_jobs(status):
 
     return jobs
 
-# def get_all_jobs2(status):
-#     "Get's queued jobs on the farm"
+def send_python_job(**kwargs):
+    """
+    Spawns a Python job on the current connected Deadline Repository.
+    Returns the submission log.
+    """
 
-#     # Get all Jobs with status Queued
-#     proc = subprocess.Popen([os.path.join(os.environ["DEADLINE_PATH"], "deadlinecommand.exe"), "getJobsFilterIni", "status={}".format(status),], stdout=subprocess.PIPE, shell=True)
-#     (out, err) = proc.communicate()
-#     "Split output line by line into a list"
+    print("Sending Job to Deadline...")
     
-#     # Split by empty line (each block between empty line is a job)
-#     out = out.split("\n ")
+    ##############################################################
+    #logger.debug("Writing Job Info File")
+    ##############################################################
+    jif = os.path.join(os.environ["TEMP"], str(randint(0,99999))+"_deadlineJobInfo.txt")
+    #logger.debug(jif)
+    file = open(jif,"w")
+    file.write("Plugin=Python")
 
-#     # for block in out:
-#     #     print(block)
+    if "Name" in kwargs.keys():
+        file.write("\nName=" + kwargs["Name"])
+    if "BatchName" in kwargs.keys():
+        file.write("\nBatchName=" + kwargs["BatchName"])
+    if "Department" in kwargs.keys():
+        file.write("\nDepartment=" + kwargs["Department"])
 
-#     # return
+    # Pool
+    if "Pool" in kwargs.keys():
+        file.write("\nPool=" + str(kwargs["Pool"]))
 
+    # SecondaryPool
+    if "SecondaryPool" in kwargs.keys():
+        file.write("\nSecondaryPool=" + str(kwargs["SecondaryPool"]))
+
+    # Machinelimit
+    if "MachineLimit" in kwargs.keys():
+        file.write("\nMachineLimit=" + str(kwargs["MachineLimit"]))
+
+    # Limitgroups as list
+    if "LimitGroups" in kwargs.keys():
+        file.write("\nLimitGroups=" + ",".join(kwargs["LimitGroups"]))
+
+    # Framerange - default 1
+    if "Frames" in kwargs.keys():
+        file.write("\nFrames=" + str(kwargs["Frames"]))
+    else:
+        file.write("\nFrames=1")
+
+    # Chunksize - default 99999
+    if "ChunkSize" in kwargs.keys():
+        file.write("\nChunkSize=" + str(kwargs["ChunkSize"]))
+    else:
+        file.write("\nChunkSize=99999")
+
+    # Priority - default 10
+    if "Priority" in kwargs.keys():
+        file.write("\nPriority=" + str(kwargs["Priority"]))
+    else:
+        file.write("\nPriority=10")
+
+    # JobDependencies
+    if "JobDependencies" in kwargs.keys():
+        file.write("\nJobDependencies=" + ",".join(kwargs["JobDependencies"]))
+
+    # OutputFiles
+    if "OutputFiles" in kwargs.keys():
+        count = 0
+        for output_file in kwargs["OutputFiles"]:
+            file.write("\nOutputFilename" + str(count) + "=" + output_file)
+            count = count+1
     
+    # InitialStatus
+    if "InitialStatus" in kwargs.keys():
+        file.write("\nInitialStatus=" + str(kwargs["InitialStatus"]))
+
+    # EnvironmentKeyValues
+    if "EnvironmentKeyValues" in kwargs.keys():
+        count = 0
+        for k, v in kwargs["EnvironmentKeyValues"].iteritems():
+            file.write("\nEnvironmentKeyValue" + str(count) + "=" + k + "=" + str(v))
+            count = count+1
+
+    # Scripts
+    if "PreJobScript" in kwargs.keys():
+        script_path = str(kwargs["PreJobScript"]).replace("\\", "/")
+        file.write("\nPreJobScript=" + script_path)
+    if "PostJobScript" in kwargs.keys():
+        script_path = str(kwargs["PostJobScript"]).replace("\\", "/")
+        file.write("\nPostJobScript=" + script_path)
+    if "PreTaskScript" in kwargs.keys():
+        script_path = str(kwargs["PreTaskScript"]).replace("\\", "/")
+        file.write("\nPreTaskScript=" + script_path)
+    if "PostTaskScript" in kwargs.keys():
+        script_path = str(kwargs["PostTaskScript"]).replace("\\", "/")
+        file.write("\nPostTaskScript=" + script_path)
+
+    # Close the file
+    file.close()
+   
     
-#     #return out
 
-#     #name = (out.split("Name=")[1]).split("\n")[0]
-#     #print name
+    ##############################################################
+    #logger.debug("Writing Plugin Info File")
+    ##############################################################
+    pif = os.path.join(os.environ["TEMP"], str(randint(0,99999))+"_deadlinePluginInfo.txt")
+    #logger.debug(pif)
+    file = open(pif,"w")
+    file.write("Plugin=Python")
 
-#     jobs = {}
-#     for block in out:
-#         name = None
-#         jobid = None
-#         for line in block.split("\n"):
-#             if "JobName=" in line:
-#                 name = line.split("JobName=")[1]
-#                 #print name
-#             if "ID=" in line:
-#                 jobid = line.split("ID=")[1]
-#                 #print jobid
-            
-#             if name and jobid:
-#                 jobs[name] = jobid
+    # Arguments
+    if "Arguments" in kwargs.keys():
+        file.write("\nArguments=" + str(kwargs["Arguments"]))
 
-#                 #print(name)
-#                 #print(jobid)
+    # SingleFramesOnly
+    if "SingleFramesOnly" in kwargs.keys():
+        file.write("\nSingleFramesOnly=" + str(kwargs["SingleFramesOnly"]))
 
-#         #print name
-#         #print jobid
-    
-#     for k, v in jobs.iteritems():
-#         print k
-#         print v
+    # Version
+    if "Version" in kwargs.keys():
+        file.write("\nVersion=" + str(kwargs["Version"]))
+    else:
+        # default to v2.7 if no version present
+        file.write("\nVersion=2.7")
 
-#     return jobs
+    # SceneFile
+    if "ScriptFile" in kwargs.keys():
+        file.write("\nScriptFile=" + str(kwargs["ScriptFile"]))
+
+    # Close the file
+    file.close()
+
+    ##################################################
+    #logger.debug("Sending Job to Farm")
+    ##################################################
+    deadlinecommand = os.path.join(os.environ["DEADLINE_PATH"], "deadlinecommand.exe")   
+    proc = subprocess.Popen([deadlinecommand,jif,pif], stdout=PIPE, shell=True)
+    output = proc.stdout.read()
 
 
 

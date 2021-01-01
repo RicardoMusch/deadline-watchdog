@@ -12,8 +12,8 @@ import time
 # Start app
 os.system("cls")
 
-print("Getting Deadline configuration...")
-pools = deadline_utils.get_pools()
+## Load empty vars
+pools = None
 
 
 def main():
@@ -26,6 +26,11 @@ def main():
     # GUI
     global version
     version = _get_app_version()
+    
+    print("Getting Deadline configuration...")
+    global pools
+    pools = deadline_utils.get_pools()
+
     menu()
 
 def menu():
@@ -34,11 +39,12 @@ def menu():
     _header()
     print("Choose your option:")
     _dashingLine()
-    print("1 - Add jobfilter")
-    print("2 - Remove jobfilter")
-    print("3 - View jobfilters")
-    print("4 - Reset all jobfilters")
-    print("5 - Start watchdog...")
+    print("1 - Start watchdog...")
+    print("2 - Add jobfilter")
+    print("3 - Remove jobfilter")
+    print("4 - View jobfilters")
+    print("5 - Reset all jobfilters")
+    print("6 - Send Deadline Watchdog Job to farm...")    
 
     print(" ")
     print("Make your choice:")
@@ -46,15 +52,17 @@ def menu():
 
 
     if choice.strip("") == "1":
-        add_jobfilter()
-    elif choice.strip("") == "2":
-        remove_jobfilter()
-    elif choice.strip("") == "3":
-        view_jobfilters()
-    elif choice.strip("") == "4":
-        reset_jobfilters()
-    elif choice.strip("") == "5":
         watchdog()
+    elif choice.strip("") == "2":
+        add_jobfilter()
+    elif choice.strip("") == "3":
+        remove_jobfilter()
+    elif choice.strip("") == "4":
+        view_jobfilters()
+    elif choice.strip("") == "5":
+        reset_jobfilters()
+    elif choice.strip("") == "6":
+        send_watchdog_job()
     else:
         menu()
 
@@ -112,12 +120,21 @@ def watchdog():
     _dashingLine()
     print("Waiting {} seconds...".format(time_to_wait))
     time.sleep(time_to_wait)
-    watchdog()
+    watchdog()  
 
-    
-
-    
-        
+def send_watchdog_job():
+    "Sends a deadline python job which automatically starts watchdog"
+    kwargs = {}
+    kwargs["Name"] = "Deadline Watchdog"
+    kwargs["Arguments"] = "-run"
+    kwargs["ScriptFile"] = __file__
+    kwargs["InitialStatus"] = "Suspended"
+    deadline_utils.send_python_job(**kwargs)    
+    print(" ")
+    _dashingLine()
+    print("The job is suspended. Please edit the job parameters via Deadline Monitor.")
+    question("Press Enter to return to the main menu.")
+    menu()    
 
 def add_jobfilter():
     "Provides a menu for the user to add a jobfilter"

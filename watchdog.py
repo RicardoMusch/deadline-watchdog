@@ -19,6 +19,13 @@ pools = deadline_utils.get_pools()
 def main():
     "Main app run"
     _ensure_jobfilters_exist()
+
+    if _get_argv("run"):
+        watchdog()
+    
+    # GUI
+    global version
+    version = _get_app_version()
     menu()
 
 def menu():
@@ -131,6 +138,17 @@ def add_jobfilter():
     # Go back to the menu
     menu()  
 
+def remove_jobfilter():
+    "Provides a menu for the user to add a jobfilter"
+    _header()
+
+    print("This functionality has not yet been added!")
+    print("Returning to main menu in 5 seconds...")
+    time.sleep(5)
+
+    # Go back to the menu
+    menu()  
+
 def view_jobfilters():
     "Prints a list of the current jobfilters in the jobfilters file"
     _header()
@@ -181,6 +199,7 @@ def _dashingLine():
 
 def _header():
     os.system("cls")
+    system("TITLE {} {}".format(app_name, version))
     _div()
     print(app_name)
     print("Version: {}".format(version))
@@ -193,10 +212,7 @@ def _get_argv(argv):
 
     for arg in args:
         if argv in arg.lower():
-            try:
-                return arg.split("-"+argv+":")[1]
-            except:
-                return True
+            return True
     return None
 
 def _get_hostname():
@@ -224,6 +240,13 @@ def question(question):
     print(question)
     a = raw_input()
     return a
+
+def _get_app_version():
+    "App is usually in a versioned folder"
+    folder = os.path.basename(os.path.dirname(__file__))
+    return folder
+
+
 
 if __name__ == "__main__":
     main()

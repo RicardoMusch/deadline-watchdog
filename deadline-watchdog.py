@@ -6,8 +6,10 @@ import os
 from os import system
 import sys
 import socket
-import deadline_utils
 import time
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "python"))
+import deadline_utils
 
 # Start app
 os.system("cls")
@@ -124,6 +126,7 @@ def watchdog():
 
 def send_watchdog_job():
     "Sends a deadline python job which automatically starts watchdog"
+    _header()
     kwargs = {}
     kwargs["Name"] = "Deadline Watchdog"
     kwargs["Arguments"] = "-run"
@@ -143,6 +146,8 @@ def add_jobfilter():
     jobfilter = question("Enter a jobfilter to add:")
     print(" ")
 
+    print("Pools:")
+    _dashingLine()
     for pool in pools:
         print(pool)
     pool = question("Enter the pool any jobs matching this jobfilter should be reassigned to?\n(leave blank to leave it the same):")
@@ -178,7 +183,8 @@ def view_jobfilters():
     count = 1
     for line in f:
         formatted_line = line.split(",")
-        print(str(count)+"    ".join(formatted_line))
+        print("{} {} {} {}".format(str(count).ljust(4), formatted_line[0].ljust(20), formatted_line[1].ljust(10), str(formatted_line[2]).ljust(10)))
+        #print(str(count).ljust(4)+"    "+"    ".join(formatted_line))
         count = count+1
     f.close()
     print(" ")
@@ -191,6 +197,7 @@ def view_jobfilters():
 
 def reset_jobfilters():
     "Resets the job filters"
+    _header()
 
     print("Removing jobfilters...")
     c = question("Are you sure? (y/n)")
@@ -248,7 +255,7 @@ def add_jobfilter_to_file(jobfilter, pool, priority):
     "Add a line to the jobfilters file"
     jobfilters_file = _get_jobfilters_file()
     f = open(jobfilters_file, "a")
-    f.write("\n {f},{p},{pr}".format(f=jobfilter, p=pool, pr=priority))
+    f.write("{f},{p},{pr}\n".format(f=jobfilter, p=pool, pr=priority))
     f.close()
     print("Added jobfilter to jobfilters file...")
 

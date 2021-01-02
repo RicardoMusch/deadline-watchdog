@@ -17,22 +17,21 @@ Filters will have to be added using the GUI but this can be done from a differen
 
 The menu will display the following options:
 
-### 1 - Start watchdog...
-Starts the watchdog in GUI mode running on the current computer.
-
-### 2 - Add jobfilter
+### 1 - Add jobfilter
 Add a jobfilter, for example "tst_0050" will scan for all jobs with this in the name.
 Set a pool and priority to adjust matching jobs to.
 
-### 3 - Remove jobfilter
+### 2 - Remove jobfilter
 Not implemented yet...
 
-### 4 - View jobfilters
+### 3 - View jobfilters
 Displays all jobfilters currently in the jobfilters file.
 
-### 5 - Reset all jobfilters
+### 4 - Reset all jobfilters
 Resets all jobfilters.
 
-### 6 - Send Deadline Watchdog Job to farm...
+### 5 - Send Deadline Watchdog Job to farm...
 Sends a suspended Python Deadline job to the farm which runs the watchdog in command line mode
 
+### 9 - Start watchdog...
+Starts the watchdog in GUI mode running on the current computer.

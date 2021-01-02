@@ -7,6 +7,7 @@ from os import system
 import sys
 import socket
 import time
+import ast
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "python"))
 import deadline_utils
@@ -41,30 +42,30 @@ def menu():
     _header()
     print("Choose your option:")
     _dashingLine()
-    print("1 - Start watchdog...")
-    print("2 - Add jobfilter")
-    print("3 - Remove jobfilter")
-    print("4 - View jobfilters")
-    print("5 - Reset all jobfilters")
-    print("6 - Send Deadline Watchdog Job to farm...")    
+    print("1 - Add jobfilter")
+    print("2 - Remove jobfilter")
+    print("3 - View jobfilters")
+    print("4 - Reset all jobfilters")
+    print("5 - Send Deadline Watchdog Job to farm...")    
+    print("9 - Start watchdog...")
 
     print(" ")
     print("Make your choice:")
     choice = raw_input("")
 
 
-    if choice.strip("") == "1":
-        watchdog()
-    elif choice.strip("") == "2":
+    elif choice.strip("") == "1":
         add_jobfilter()
-    elif choice.strip("") == "3":
+    elif choice.strip("") == "2":
         remove_jobfilter()
-    elif choice.strip("") == "4":
+    elif choice.strip("") == "3":
         view_jobfilters()
-    elif choice.strip("") == "5":
+    elif choice.strip("") == "4":
         reset_jobfilters()
-    elif choice.strip("") == "6":
+    elif choice.strip("") == "5":
         send_watchdog_job()
+    elif choice.strip("") == "9":
+        watchdog()
     else:
         menu()
 
@@ -87,35 +88,46 @@ def watchdog():
     # Get the jobfilters and format into a dict like:
     # {"FILTERNAME":[POOL, PRIORITY], "FILTERNAME2:[POOL, PRIORITY]"}
     # i.e. {"DD8": ["high", 100], "TD1": ["2d_main", 80]}
-    jobfilters = {}
+    #jobfilters = {}
     for line in open(_get_jobfilters_file(), "r"):
-        try:
-            filtername = line.split(",")[0]
-            pool = line.split(",")[1]
-            priority = int(line.split(",")[2])
-            jobfilters[filtername] = [pool, priority]
-        except:
-            pass
 
-    for job_filter, settings in jobfilters.iteritems():
-        job_filter = job_filter.strip(" ")
+        # Eval the line as it should be a dict
+        jobFilter = ast.literal_eval(line)
 
-        #print job_filter
-        #print settings
-        #print " "
+
+
+        # try:
+        #     filtername = line.split(",")[0]
+        #     pool = line.split(",")[1]
+        #     priority = int(line.split(",")[2])
+        #     jobfilters[filtername] = [pool, priority]
+        # except:
+        #     pass
+
+    # for job_filter, settings in jobfilters.iteritems():
+    #     job_filter = job_filter.strip(" ")
+
+    #     #print job_filter
+    #     #print settings
+    #     #print " "
 
         for job_name, job_id in jobs.iteritems():
             #print job_name.lower()
             #print job_id
-            if job_filter.lower() in job_name.lower():
+            #if job_filter.lower() in job_name.lower():
+            if jobFilter["jobfilter"].lower() in job_name.lower():
 
                 print("Updating job: {}".format(job_name))
                 print(job_id)
                 #print("Pool: {p}, Priority: {pr}".format(p=settings[0], pr=settings[1]))
 
                 # set the job settings based on the job filter
-                deadline_utils.set_job_setting([job_id], "Pool", settings[0])
-                deadline_utils.set_job_setting([job_id], "Priority", str(settings[1]))
+                for key in jobFilter.keys():
+                    if not key == "jobfilter":
+                        if not str(jobFilter[key]) == "":
+                            deadline_utils.set_job_setting([job_id], key, jobFilter[key])
+                #deadline_utils.set_job_setting([job_id], "Pool", settings[0])
+                #deadline_utils.set_job_setting([job_id], "Priority", str(settings[1]))
 
 
     print(" ")
@@ -143,19 +155,20 @@ def add_jobfilter():
     "Provides a menu for the user to add a jobfilter"
     _header()
 
-    jobfilter = question("Enter a jobfilter to add:")
-    print(" ")
+    jobFilter = {}
 
+    jobFilter["jobfilter"] = question("New jobfilter:")
+    
     print("Pools:")
     _dashingLine()
     for pool in pools:
         print(pool)
-    pool = question("Enter the pool any jobs matching this jobfilter should be reassigned to?\n(leave blank to leave it the same):")
+    jobFilter["pool"] = question("Enter the pool any jobs matching this jobfilter should be reassigned to?\n(leave blank to leave it the same):")
 
-    priority = question("What priority should any jobs matching the jobfilter be given?\n(leave blank to leave it the same):")
+    jobFilter["priority"] = question("What priority should any jobs matching the jobfilter be given?\n(leave blank to leave it the same):")
 
-    # Add the jobfilters
-    add_jobfilter_to_file(jobfilter, pool, priority)
+    # Add the jobfilter
+    add_jobfilter_to_file(jobFilter)
 
     # Go back to the menu
     menu()  
@@ -175,7 +188,7 @@ def view_jobfilters():
     "Prints a list of the current jobfilters in the jobfilters file"
     _header()
 
-    print("ID:  jobfilters:         Pool:       Priority:")
+    print("ID:  jobfilter:")
     _dashingLine()
 
     jobfilters_file = _get_jobfilters_file()
@@ -251,11 +264,11 @@ def _ensure_jobfilters_exist():
 def _get_jobfilters_file():
     return os.path.join(os.path.dirname(__file__), "jobfilters.cfg")
 
-def add_jobfilter_to_file(jobfilter, pool, priority):
+def add_jobfilter_to_file(jobFilter):
     "Add a line to the jobfilters file"
     jobfilters_file = _get_jobfilters_file()
     f = open(jobfilters_file, "a")
-    f.write("{f},{p},{pr}\n".format(f=jobfilter, p=pool, pr=priority))
+    f.write("{}\n".format(str(jobFilter)))
     f.close()
     print("Added jobfilter to jobfilters file...")
 

@@ -43,7 +43,7 @@ def menu():
     print("Choose your option:")
     _dashingLine()
     print("1 - Add jobfilter")
-    print("2 - Remove jobfilter")
+    print("2 - Remove jobfilter (Not implemented yet)")
     print("3 - View jobfilters")
     print("4 - Reset all jobfilters")
     print("5 - Send Deadline Watchdog Job to farm...")    
@@ -54,7 +54,7 @@ def menu():
     choice = raw_input("")
 
 
-    elif choice.strip("") == "1":
+    if choice.strip("") == "1":
         add_jobfilter()
     elif choice.strip("") == "2":
         remove_jobfilter()
@@ -85,50 +85,23 @@ def watchdog():
     jobs.update(renjobs)
     jobs.update(pendingjobs)
 
-    # Get the jobfilters and format into a dict like:
-    # {"FILTERNAME":[POOL, PRIORITY], "FILTERNAME2:[POOL, PRIORITY]"}
-    # i.e. {"DD8": ["high", 100], "TD1": ["2d_main", 80]}
-    #jobfilters = {}
+    # Get the jobfilters from the jobfilters file
     for line in open(_get_jobfilters_file(), "r"):
 
         # Eval the line as it should be a dict
         jobFilter = ast.literal_eval(line)
 
-
-
-        # try:
-        #     filtername = line.split(",")[0]
-        #     pool = line.split(",")[1]
-        #     priority = int(line.split(",")[2])
-        #     jobfilters[filtername] = [pool, priority]
-        # except:
-        #     pass
-
-    # for job_filter, settings in jobfilters.iteritems():
-    #     job_filter = job_filter.strip(" ")
-
-    #     #print job_filter
-    #     #print settings
-    #     #print " "
-
         for job_name, job_id in jobs.iteritems():
-            #print job_name.lower()
-            #print job_id
-            #if job_filter.lower() in job_name.lower():
+
             if jobFilter["jobfilter"].lower() in job_name.lower():
 
-                print("Updating job: {}".format(job_name))
-                print(job_id)
-                #print("Pool: {p}, Priority: {pr}".format(p=settings[0], pr=settings[1]))
+                print("Updating job: {} with ID: {}".format(job_name, job_id))
 
                 # set the job settings based on the job filter
                 for key in jobFilter.keys():
                     if not key == "jobfilter":
                         if not str(jobFilter[key]) == "":
                             deadline_utils.set_job_setting([job_id], key, jobFilter[key])
-                #deadline_utils.set_job_setting([job_id], "Pool", settings[0])
-                #deadline_utils.set_job_setting([job_id], "Priority", str(settings[1]))
-
 
     print(" ")
     _dashingLine()
